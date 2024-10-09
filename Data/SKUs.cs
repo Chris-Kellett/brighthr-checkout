@@ -10,14 +10,14 @@ namespace CheckoutClassLibrary
     public static class Data
     {
         // SKUCache :: Holds the last obtained Dictionary of <SKU, Price>
-        private static Dictionary<string, int> SKUCache = new Dictionary<string, int>();
+        private static List<SKUItem> SKUCache = new List<SKUItem>();
 
         /// <summary>
         /// Returns a Dictionary of <SKU, Price> containing all known SKUs.
         /// </summary>
         /// <param name="forceRefresh">False by default, if True will forcibly obtain new data before returning.</param>
         /// <returns>Dictionary <SKU, Price></returns>
-        public static Dictionary<string, int> SKUs(bool forceRefresh = false)
+        public static List<SKUItem> SKUs(bool forceRefresh = false)
         {
             // Do we need to obtain new Data? This will either be on the first instance of the SKUs being requested
             // or the calling function specifically requesting new data. Data is not automatically obtained each
@@ -40,10 +40,10 @@ namespace CheckoutClassLibrary
             try
             {
                 itemPricesJson = File.ReadAllText(Config.ItemPricesJson);
-                Dictionary<string, Dictionary<string, int>>? skuCache = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, int>>>(itemPricesJson);
-                if (skuCache != null)
+                ItemPricesList? skuCache = JsonConvert.DeserializeObject<ItemPricesList>(itemPricesJson);
+                if (skuCache != null && skuCache.ItemPrices != null)
                 {
-                    SKUCache = skuCache["ItemPrices"];
+                    SKUCache = skuCache.ItemPrices;
                 }
                 Logging.Debug("UpdateSKUs completed successfully");
             }

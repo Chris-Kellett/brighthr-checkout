@@ -110,11 +110,6 @@ namespace CheckoutClassLibrary
             if (appendToFile == "")
             {
                 appendToFile = $"{Config.LogLocation}{Config.LogFileName}_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt";
-            } 
-            else
-            {
-                // As this is an existing file, we want to make sure it's written on a new line.
-                loggingLine = Environment.NewLine + loggingLine;
             }
 
             // Now we have a file to write to, we can append our log to the end

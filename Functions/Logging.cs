@@ -91,10 +91,46 @@ namespace CheckoutClassLibrary
             }
 
             // Now we need to work out whether we want to append the LoggingLine to the most recent logging file, or create a new one.
-            string appendToFile;
+            string appendToFile = "";
             if (files.Count > 0)
             {
-                
+                // Get the most recently written-to file.
+                FileInfo? recentFile = files.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
+                if (recentFile != null)
+                {
+                    // Check whether the FileSize of the most recent file is within our limits. If it IS we can append to this file.
+                    if (recentFile.Length <= Config.MaxLogFileSizeMb * 1024 * 1024)
+                    {
+                        appendToFile = recentFile.FullName;
+                    }
+                }
+            }
+
+            // If by this point we don't have a value in "appendToFile", we need to write to a new file. Create the File Name.
+            if (appendToFile == "")
+            {
+                appendToFile = $"{Config.LogLocation}{Config.LogFileName}_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt";
+            } 
+            else
+            {
+                // As this is an existing file, we want to make sure it's written on a new line.
+                loggingLine = Environment.NewLine + loggingLine;
+            }
+
+            // Now we have a file to write to, we can append our log to the end
+            try
+            {
+                // Use StreamWriter in append mode
+                using (StreamWriter writer = new StreamWriter(appendToFile, true))
+                {
+                    writer.WriteLine(loggingLine); 
+                }
+            }
+            catch (Exception ex)
+            {
+                // No real need to return; here as the work has already concluded. Though we should notify Debugging users that the 
+                // write to a log file failed.
+                Console.WriteLine($"CRITICAL LOGGING ERROR: {ex.ToString()}");
             }
         }
     }

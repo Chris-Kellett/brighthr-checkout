@@ -11,6 +11,9 @@ namespace CheckoutClassLibrary
         // DebugMode :: When disabled, Debug logs are not written and no entries are written to the Console.
         public static bool DebugMode = true;
 
+        // LogLocation :: The Location to write Logging Text files on the instance's local machine.
+        public static string LogLocation = "C:/DebugLogs/CheckoutClassLibrary/";
+
         // CacheSKUs :: When enabled, performance is improved by caching the SKU Dictionary for future use.
         //              This can be overwritten by providing "forceRefresh = true" when obtaining the SKUs Dictionary.
         public static bool CacheSKUs = true;

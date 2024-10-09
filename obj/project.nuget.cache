@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "V7jUvin5aqs=",
+  "success": true,
+  "projectFilePath": "F:\\CodeProjects\\CodeTasks\\BrightHR\\CheckoutClassLibrary\\brighthr-checkout\\CheckoutClassLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.35\\microsoft.windowsdesktop.app.ref.6.0.35.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.35\\microsoft.netcore.app.ref.6.0.35.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.35\\microsoft.aspnetcore.app.ref.6.0.35.nupkg.sha512"
+  ],
+  "logs": []
+}

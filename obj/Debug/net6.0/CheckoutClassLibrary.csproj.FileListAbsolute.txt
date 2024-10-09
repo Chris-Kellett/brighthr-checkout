@@ -1,0 +1,12 @@
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.AssemblyInfoInputs.cache
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.AssemblyInfo.cs
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.csproj.CoreCompileInputs.cache
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.sourcelink.json
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\bin\Debug\net6.0\CheckoutClassLibrary.deps.json
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\bin\Debug\net6.0\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\bin\Debug\net6.0\CheckoutClassLibrary.pdb
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\refint\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.pdb
+F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\ref\CheckoutClassLibrary.dll

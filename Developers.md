@@ -26,6 +26,10 @@ This file houses all `enums` which are used globally within the Class Library.
 ## Functions
 This folder contains both Public and Private functions used within the Class Library.
 
+### GetSKUs.cs
+Contains `GetSKUs()` which exposes `Data.SKUs()` publically
+### GetSpecialPrices()
+Contains `GetSpecialPrices()` which exposes `Data.SpecialPrices()` publically
 ### Checkout.cs
 Contains `GetTotalPrice()`
 ### Logging.cs
@@ -45,3 +49,10 @@ This folder contains all Model objects used within the Class Library. Each model
 `SpecialPrice`: The Model of an individual Special Price object.
 
 `SpecialPriceList`: Used to Deserialise the `SpecialPrices.json` file.
+
+## Testing
+### BasicTests.cs
+Contains tests aimed at general functional testing with no great degree of complexity.
+
+### SpecialTests.cs
+Contains tests aimed at the Special Prices functionality.

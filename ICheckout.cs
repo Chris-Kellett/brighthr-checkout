@@ -4,5 +4,6 @@
     {
         void Scan(string item);
         int GetTotalPrice();
+        void SessionComplete();
     }
 }

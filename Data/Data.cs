@@ -97,6 +97,15 @@ namespace CheckoutClassLibrary
         {
             return CurrentCart;
         }
+
+        /// <summary>
+        /// Resets the SKUs stored in the CurrentCart so a new session can begin
+        /// </summary>
+        public static void ResetSession()
+        {
+            Logging.Event($"Session has been reset, {CurrentCart.Count()} items have been cleared from the CurrentCart");
+            CurrentCart.Clear();
+        }
     }
 
 }

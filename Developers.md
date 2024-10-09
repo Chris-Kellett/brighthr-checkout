@@ -18,7 +18,7 @@ The following internal variables are stored within this file.
 
 `SKUCache`: When the SKUCache is in operation (as defined in `Config.cs`), this is where the last SKU list is stored.
 
-`CurrentCat`: The collection of scanned items associated with the current session.
+`CurrentCart`: The collection of scanned items associated with the current session.
 
 ### Enums.cs
 This file houses all `enums` which are used globally within the Class Library.

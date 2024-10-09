@@ -1,10 +1,11 @@
-﻿using System;
+﻿using CheckoutClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public partial class Checkout
+public partial class Checkout : ICheckout
 {
     public int GetTotalPrice()
     {

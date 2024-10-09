@@ -11,4 +11,13 @@
     <PackageReference Include="NUnit" Version="3.14.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\Prices\ItemPrices.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Prices\SpecialPrices.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

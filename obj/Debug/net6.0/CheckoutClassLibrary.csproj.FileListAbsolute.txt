@@ -23,3 +23,5 @@ F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\De
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\refint\CheckoutClassLibrary.dll
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.pdb
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\ref\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\bin\Debug\net6.0\Data\Prices\ItemPrices.json
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\bin\Debug\net6.0\Data\Prices\SpecialPrices.json

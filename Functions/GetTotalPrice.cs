@@ -20,6 +20,10 @@ public partial class Checkout : ICheckout
         // Initialise the Total Price to be populated via Specials and stand-alone SKUs
         int totalPrice = 0;
 
+        // Initialise a collection of SKUs which have had Special Prices checked/applied to them. We'll
+        // later revisit this to add any SKUs in the Cart which are not affected by Special Pricing.
+        List<string> specialSkusApplied = new List<string>();
+
         // If we have any SpecialPrices, we will process them down this route. This will apply as many Special Prices
         // as possible then add a standard price for any quantities left over for each SKU.
         if (specialPrices !=  null && specialPrices.Count > 0)
@@ -35,6 +39,9 @@ public partial class Checkout : ICheckout
             {
                 // First account for the Nullable string
                 if (sku == null || sku == "") continue;
+
+                // Add this to the Processed List of Special Price SKUs
+                specialSkusApplied.Add(sku);
 
                 // Now get all matching Special Prices associated with the SKU
                 List<SpecialPrice> skuSpecials = specialPrices.Where(s => s.SKU == sku).ToList();
@@ -77,16 +84,18 @@ public partial class Checkout : ICheckout
                     totalPrice += cartCount * cartSkus[0].Price ?? 0;
                 }
             }
-        }
-        else
-        {
-            // If we do not have any Special Prices, we simply add the price for every SKU to the total here.
-            foreach(SKUItem skuItem in cartItems)
-            {
-                totalPrice += skuItem.Price ?? 0;
-            }
+
+
         }
 
+        // Now we've processed any available Special Prices, we need to add SKUs which did not have any Special Prices
+        // to the Total Price.
+        List<SKUItem> remainingItems = cartItems.Where(s => !specialSkusApplied.Contains(s.SKU ?? "")).ToList();
+        foreach (SKUItem skuItem in remainingItems)
+        {
+            totalPrice += skuItem.Price ?? 0;
+        }
+        
         Logging.Event($"Cart containing {cartItems.Count()} items was calculated at {totalPrice}");
         return totalPrice;
     }

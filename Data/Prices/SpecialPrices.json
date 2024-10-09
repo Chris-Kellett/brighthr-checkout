@@ -1,0 +1,12 @@
+{
+  "SpecialPrices": {
+    "A": {
+      "Quantity": 3,
+      "Price": 130
+    },
+    "B": {
+      "Quantity": 2,
+      "Price":  45
+    }
+  }
+}

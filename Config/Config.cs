@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CheckoutClassLibrary
+{
+    public static class Config
+    {
+        // CacheSKUs :: When enabled, performance is improved by caching the SKU Dictionary for future use.
+        //              This can be overwritten by providing "forceRefresh = true" when obtaining the SKUs Dictionary.
+        public static bool CacheSKUs = true;
+
+        // These are the locations of the Prices data in the Class Library.
+        public static string ItemPricesJson = "Data/Prices/ItemPrices.json";
+        public static string SpecialPricesJson = "Data/Prices/SpecialPrices.json";
+    }
+}

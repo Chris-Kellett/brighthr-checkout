@@ -88,6 +88,15 @@ namespace CheckoutClassLibrary
             CurrentCart.Add(item);
             Logging.Event($"SKU: {item.SKU} added to current cart");
         }
+
+        /// <summary>
+        /// Returns the Current Cart object, containing all scanned items associated with the session
+        /// </summary>
+        /// <returns>List of SKUItem objects</returns>
+        public static List<SKUItem>? GetCart()
+        {
+            return CurrentCart;
+        }
     }
 
 }

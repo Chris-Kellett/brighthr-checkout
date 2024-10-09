@@ -176,5 +176,66 @@ namespace CheckoutClassLibrary.Tests
             }
         }
 
+        [Test]
+        public void MultipleSpecialsRandomOrder()
+        {
+            if (_specialPrices != null)
+            {
+                _checkout.SessionComplete();
+                List<string> scanSkus = new List<string>();
+                int totalPrice = 0;
+                foreach (SpecialPrice special in _specialPrices)
+                {
+                    totalPrice += special.Price ?? 0;
+                    for (int i = 0; i < special.Quantity; i++)
+                    {
+                        scanSkus.Add(special.SKU ?? "");
+                    }
+                }
+
+                if (scanSkus.Count == 0)
+                {
+                    Assert.Fail("scanSkus Array is empty");
+                    return;
+                }
+
+                // As part of this Unit Test, I'm going to create a new list of SKUs which takes items from the
+                // Start, then the End, of the SKU list I have into a new list until there's nothing left.
+                // Doing this will give me an Array of the format A-B-A-B-A
+                List<string> shuffledSkus = new List<string>();
+
+                int start = 0;
+                int end = scanSkus.Count - 1;
+                bool takeFromStart = true;
+
+                while (start <= end)
+                {
+                    if (takeFromStart)
+                    {
+                        shuffledSkus.Add(scanSkus[start]);
+                        start++;
+                    }
+                    else
+                    {
+                        shuffledSkus.Add(scanSkus[end]);
+                        end--;
+                    }
+                    takeFromStart = !takeFromStart;
+                }
+
+                foreach(string sku in shuffledSkus)
+                {
+                    _checkout.Scan(sku);
+                }
+
+                int total = _checkout.GetTotalPrice();
+                Assert.That(total, Is.EqualTo(totalPrice));
+            }
+            else
+            {
+                Assert.Fail("_specialPrices is NULL");
+            }
+        }
+
     }
 }

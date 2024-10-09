@@ -14,6 +14,17 @@ namespace CheckoutClassLibrary
         // LogLocation :: The Location to write Logging Text files on the instance's local machine.
         public static string LogLocation = "C:/DebugLogs/CheckoutClassLibrary/";
 
+        // LogFileName :: The File Name of the Logging files inside the "LogLocation" directory.
+        public static string LogFileName = "CheckoutClassLibrary_Logs";
+
+        // MaxLogFileSizeMb :: The Max size a Log File can be in the Log Location, if this size is exceeded a new logging
+        //                     file is created.
+        public static int MaxLogFileSizeMb = 1;
+
+        // MaxLogFileCount :: The Max number of Logging files that will be stored in the LogLocation. If this number is 
+        //                    reached the oldest Logging file will be removed.
+        public static int MaxLogFileCount = 10;
+
         // CacheSKUs :: When enabled, performance is improved by caching the SKU Dictionary for future use.
         //              This can be overwritten by providing "forceRefresh = true" when obtaining the SKUs Dictionary.
         public static bool CacheSKUs = true;

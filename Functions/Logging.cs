@@ -61,7 +61,7 @@ namespace CheckoutClassLibrary
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"ERROR CREATING LOGLOCATION: {ex.ToString()}");
+                    Console.WriteLine($"CRITICAL LOGGING ERROR: {ex.ToString()}");
                     return; // If we can't write to the LogLocation, back out of further processing.
                 }
             }
@@ -72,7 +72,30 @@ namespace CheckoutClassLibrary
 
         private static void WriteToLogFile(string loggingLine)
         {
+            // First we need to obtain a FileInfo list of every file currently in the LogLocation. Unfortauntely we cannot directly 
+            // obtain a list of FileInfo objects via a LINQ Query, and we need the FileInfo object to determine the last modified time
+            // of the file.
+            List<FileInfo> files = new();
+            try
+            {
+                string[] fileNames = Directory.GetFiles(Config.LogLocation);
+                foreach (string file in fileNames)
+                {
+                    files.Add(new FileInfo(file));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CRITICAL LOGGING ERROR: {ex.ToString()}");
+                return; // An error here means we can't continue processing, exit the function.
+            }
 
+            // Now we need to work out whether we want to append the LoggingLine to the most recent logging file, or create a new one.
+            string appendToFile;
+            if (files.Count > 0)
+            {
+                
+            }
         }
     }
 }

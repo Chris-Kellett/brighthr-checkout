@@ -1,4 +1,5 @@
 ﻿using CheckoutClassLibrary;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,11 @@ public partial class Checkout : ICheckout
         // Quick validation to make sure we have scanned items
         if (cartItems == null || cartItems.Count == 0) return 0;
 
-        // First we want to account for all Special Prices
+        // Initialise the Total Price to be populated via Specials and stand-alone SKUs
+        int totalPrice = 0;
+
+        // If we have any SpecialPrices, we will process them down this route. This will apply as many Special Prices
+        // as possible then add a standard price for any quantities left over for each SKU.
         if (specialPrices !=  null && specialPrices.Count > 0)
         {
             // Get a list of all SKUs affected by a Special Price first, we will then calculate each potential special
@@ -34,18 +39,55 @@ public partial class Checkout : ICheckout
                 // Now get all matching Special Prices associated with the SKU
                 List<SpecialPrice> skuSpecials = specialPrices.Where(s => s.SKU == sku).ToList();
 
-                // Check we can fulfil at least one of these specials from the Current Cart we have
+                // Get all SKUItems from the Cart associated with the SKU we're currently processing, make sure we have
+                // at least 1 entry of this SKU in the Cart
                 List<SKUItem> cartSkus = cartItems.Where(c => c.SKU == sku).ToList();
                 int? minQuantity = skuSpecials.OrderBy(s => s.Quantity).First().Quantity;
-                if (cartSkus.Count < minQuantity) continue;
+                int cartCount = cartSkus.Count();
+                if (cartCount == 0) continue;
 
                 // If we're here, we have enough SKUs in our Cart that there is at least one special applicable.
                 // Now we need to work out an order to apply these special prices, with the best value specials being
-                // applied first.
+                // applied first. We'll add each Special Price to the Dictionary below with a float key, which will 
+                // denote the calculated price per item factoring in the special item price.
+                Dictionary<float, SpecialPrice> valueCalculation = new Dictionary<float, SpecialPrice>();
+                foreach(SpecialPrice skuSpecial in skuSpecials)
+                {
+                    float? value = (float?)skuSpecial.Price / skuSpecial.Quantity;
+                    valueCalculation.Add(value ?? 0, skuSpecial);
+                }
 
+                // Sort the Specials we have by their calculated Value
+                List<KeyValuePair<float, SpecialPrice>> valueSortedSpecials = valueCalculation.OrderBy(kvp => kvp.Key).ToList();
+
+                // Now we have a Value sorted list, we can apply these specials in this order to SKUs in the Cart
+                foreach (KeyValuePair<float, SpecialPrice> special in valueSortedSpecials)
+                {
+                    // Keep applying this Special until we don't have the Quantity remaining to apply any more
+                    while (cartCount >= special.Value.Quantity)
+                    {
+                        totalPrice += special.Value.Price ?? 0;
+                        cartCount -= special.Value.Quantity ?? 0;
+                    }
+                }
+
+                // Now ensure that any remaining SKUs which fall outside of the Special Quantities are applied to the Total Price
+                if (cartCount > 0)
+                {
+                    totalPrice += cartCount * cartSkus[0].Price ?? 0;
+                }
+            }
+        }
+        else
+        {
+            // If we do not have any Special Prices, we simply add the price for every SKU to the total here.
+            foreach(SKUItem skuItem in cartItems)
+            {
+                totalPrice += skuItem.Price ?? 0;
             }
         }
 
-        return 0;
+        Logging.Event($"Cart containing {cartItems.Count()} items was calculated at {totalPrice}");
+        return totalPrice;
     }
 }

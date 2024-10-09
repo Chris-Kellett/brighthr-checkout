@@ -32,6 +32,8 @@ Contains `GetTotalPrice()`
 Contains all Logging related functions used Privately within the Class Library, as well as its dependant functions used to write Log files.
 ### Scan.cs
 Contains `Scan(string item)`
+### SessionComplete.cs
+Contains `SessionComplete()`
 
 ## Models
 This folder contains all Model objects used within the Class Library. Each model is listed as an individual file.

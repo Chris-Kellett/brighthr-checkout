@@ -10,4 +10,4 @@ Additionally, the following functions are available to use for data verification
 - `GetSpecialPrices()`: Returns a list of all currently active Special Prices.
 
 ## Developers
-For information on the structure of this Class Library please read the [Developer's Readme](Developers.md)
+For information on the structure of this Class Library please read the [Developer's Readme](CheckoutClassLibrary/Developers.md)

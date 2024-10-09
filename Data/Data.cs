@@ -16,7 +16,7 @@ namespace CheckoutClassLibrary
         /// Returns a Dictionary of <SKU, Price> containing all known SKUs.
         /// </summary>
         /// <param name="forceRefresh">False by default, if True will forcibly obtain new data before returning.</param>
-        /// <returns>Dictionary <SKU, Price></returns>
+        /// <returns>List of SKUItem objects</returns>
         public static List<SKUItem> SKUs(bool forceRefresh = false)
         {
             // Do we need to obtain new Data? This will either be on the first instance of the SKUs being requested
@@ -36,10 +36,9 @@ namespace CheckoutClassLibrary
         /// </summary>
         private static void UpdateSKUs()
         {
-            string itemPricesJson;
             try
             {
-                itemPricesJson = File.ReadAllText(Config.ItemPricesJson);
+                string itemPricesJson = File.ReadAllText(Config.ItemPricesJson);
                 ItemPricesList? skuCache = JsonConvert.DeserializeObject<ItemPricesList>(itemPricesJson);
                 if (skuCache != null && skuCache.ItemPrices != null)
                 {
@@ -51,6 +50,30 @@ namespace CheckoutClassLibrary
             { 
                 Logging.Error(ex);
             }
+        }
+
+        /// <summary>
+        /// Returns all current Special Prices available. This is not cached as these values are subject to change often, meaning
+        /// an up to date value is always required.
+        /// </summary>
+        /// <returns>List of SpecialPrice objects</returns>
+        public static List<SpecialPrice>? SpecialPrices()
+        {
+            try
+            {
+                string specialPricesJson = File.ReadAllText(Config.SpecialPricesJson);
+                SpecialPriceList? specialPriceList = JsonConvert.DeserializeObject<SpecialPriceList>(specialPricesJson);
+                if (specialPriceList != null && specialPriceList.SpecialPrices != null)
+                {
+                    Logging.Debug("SpecialPrices returned successfully");
+                    return specialPriceList.SpecialPrices;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.Error(ex);
+            }
+            return null;            
         }
     }
 

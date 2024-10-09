@@ -1,12 +1,14 @@
 {
-  "SpecialPrices": {
-    "A": {
+  "SpecialPrices": [
+    {
+      "SKU": "A",
       "Quantity": 3,
       "Price": 130
     },
-    "B": {
+    {
+      "SKU": "B",
       "Quantity": 2,
-      "Price":  45
+      "Price": 45
     }
-  }
+  ]
 }

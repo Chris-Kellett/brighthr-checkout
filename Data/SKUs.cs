@@ -39,11 +39,17 @@ namespace CheckoutClassLibrary
             string itemPricesJson;
             try
             {
-                itemPricesJson = File.ReadAllText("Data/config.json");
+                itemPricesJson = File.ReadAllText(Config.ItemPricesJson);
+                Dictionary<string, Dictionary<string, int>>? skuCache = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, int>>>(itemPricesJson);
+                if (skuCache != null)
+                {
+                    SKUCache = skuCache["ItemPrices"];
+                }
+                Logging.Debug("UpdateSKUs completed successfully");
             }
             catch (Exception ex) 
             { 
-
+                Logging.Error(ex);
             }
         }
     }

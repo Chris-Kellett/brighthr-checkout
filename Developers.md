@@ -28,7 +28,11 @@ Contains `Scan(string item)`
 
 ## Models
 This folder contains all Model objects used within the Class Library. Each model is listed as an individual file.
+
 `ItemPricesList`: Used to Deserialise the `ItemPrices.json` file.
+
 `SKUItem`: The Model of an individual SKU object.
+
 `SpecialPrice`: The Model of an individual Special Price object.
+
 `SpecialPriceList`: Used to Deserialise the `SpecialPrices.json` file.

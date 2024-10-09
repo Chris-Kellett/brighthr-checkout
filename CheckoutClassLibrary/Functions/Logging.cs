@@ -92,16 +92,17 @@ namespace CheckoutClassLibrary
 
             // Now we need to work out whether we want to append the LoggingLine to the most recent logging file, or create a new one.
             string appendToFile = "";
+            FileInfo? singleFile;
             if (files.Count > 0)
             {
                 // Get the most recently written-to file.
-                FileInfo? recentFile = files.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
-                if (recentFile != null)
+                singleFile = files.OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
+                if (singleFile != null)
                 {
                     // Check whether the FileSize of the most recent file is within our limits. If it IS we can append to this file.
-                    if (recentFile.Length <= Config.MaxLogFileSizeMb * 1024 * 1024)
+                    if (singleFile.Length <= Config.MaxLogFileSizeMb * 1024 * 1024)
                     {
-                        appendToFile = recentFile.FullName;
+                        appendToFile = singleFile.FullName;
                     }
                 }
             }
@@ -126,6 +127,24 @@ namespace CheckoutClassLibrary
                 // No real need to return; here as the work has already concluded. Though we should notify Debugging users that the 
                 // write to a log file failed.
                 Console.WriteLine($"CRITICAL LOGGING ERROR: {ex.ToString()}");
+            }
+
+            // Last thing to do is check if the number of files which exist exceed the defined Config limit
+            if (files.Count > Config.MaxLogFileCount)
+            {
+                // If we're over the MaxLogFileCount, delete the oldest written-to file in the Log directory.
+                singleFile = files.OrderBy(f => f.LastWriteTime).FirstOrDefault();
+                if (singleFile != null)
+                {
+                    try
+                    {
+                        File.Delete(singleFile.FullName);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.Error(ex);
+                    }
+                }
             }
         }
     }

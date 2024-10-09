@@ -10,3 +10,16 @@ F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassL
 F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\refint\CheckoutClassLibrary.dll
 F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\CheckoutClassLibrary.pdb
 F:\CodeProjects\CodeTasks\BrightHR\checkout-kata\obj\Debug\net6.0\ref\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\bin\Debug\net6.0\CheckoutClassLibrary.deps.json
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\bin\Debug\net6.0\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\bin\Debug\net6.0\CheckoutClassLibrary.pdb
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.csproj.AssemblyReference.cache
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.AssemblyInfoInputs.cache
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.AssemblyInfo.cs
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.csproj.CoreCompileInputs.cache
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.sourcelink.json
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\refint\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\CheckoutClassLibrary.pdb
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\obj\Debug\net6.0\ref\CheckoutClassLibrary.dll

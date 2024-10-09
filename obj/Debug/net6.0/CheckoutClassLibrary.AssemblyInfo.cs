@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CheckoutClassLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efb4c38637a8aa54be80833098c6e4a3a7388cef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0255e170d73f80e0d7d64e7aa08bdaa5018759d")]
 [assembly: System.Reflection.AssemblyProductAttribute("CheckoutClassLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CheckoutClassLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,4 +14,7 @@
     <SourceRoot Include="C:\Users\chris\AppData\Roaming\Godot\mono\GodotNuGetFallbackFolder\" />
     <SourceRoot Include="E:\Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)nunit\4.2.2\build\NUnit.props" Condition="Exists('$(NuGetPackageRoot)nunit\4.2.2\build\NUnit.props')" />
+  </ImportGroup>
 </Project>

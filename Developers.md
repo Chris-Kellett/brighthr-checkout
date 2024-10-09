@@ -13,6 +13,13 @@ The Data folder contains elements relating to the requesting and storage of Data
 This folder contains `.json` files which provide the `ItemPrices` and `SpecialPrices` values.
 ### Data.cs
 This file is to house functions relating to the delivery and manipulation of data within the Class Library.
+
+The following internal variables are stored within this file.
+
+`SKUCache`: When the SKUCache is in operation (as defined in `Config.cs`), this is where the last SKU list is stored.
+
+`CurrentCat`: The collection of scanned items associated with the current session.
+
 ### Enums.cs
 This file houses all `enums` which are used globally within the Class Library.
 

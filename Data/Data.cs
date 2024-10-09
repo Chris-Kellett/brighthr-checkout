@@ -12,6 +12,9 @@ namespace CheckoutClassLibrary
         // SKUCache :: Holds the last obtained Dictionary of <SKU, Price>
         private static List<SKUItem> SKUCache = new List<SKUItem>();
 
+        // CurrentCart :: Holds all scanned SKUs associated with the current Session
+        private static List<SKUItem> CurrentCart = new List<SKUItem>();
+
         /// <summary>
         /// Returns a Dictionary of <SKU, Price> containing all known SKUs.
         /// </summary>
@@ -74,6 +77,16 @@ namespace CheckoutClassLibrary
                 Logging.Error(ex);
             }
             return null;            
+        }
+
+        /// <summary>
+        /// Adds an item to the Current Cart object associated with the session
+        /// </summary>
+        /// <param name="item">The SKUItem object to add</param>
+        public static void AddToCart(SKUItem item)
+        {
+            CurrentCart.Add(item);
+            Logging.Event($"SKU: {item.SKU} added to current cart");
         }
     }
 

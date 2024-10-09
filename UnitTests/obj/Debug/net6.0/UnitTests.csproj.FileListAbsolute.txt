@@ -98,3 +98,8 @@ F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTe
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\obj\Debug\net6.0\UnitTests.pdb
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\obj\Debug\net6.0\UnitTests.genruntimeconfig.cache
 F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\obj\Debug\net6.0\ref\UnitTests.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\bin\Debug\net6.0\CoverletSourceRootsMapping
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\bin\Debug\net6.0\Data\Prices\ItemPrices.json
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\bin\Debug\net6.0\Data\Prices\SpecialPrices.json
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\bin\Debug\net6.0\CheckoutClassLibrary.dll
+F:\CodeProjects\CodeTasks\BrightHR\CheckoutClassLibrary\brighthr-checkout\UnitTests\bin\Debug\net6.0\CheckoutClassLibrary.pdb

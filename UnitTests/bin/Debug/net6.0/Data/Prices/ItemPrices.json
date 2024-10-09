@@ -1,0 +1,20 @@
+{
+  "ItemPrices": [
+    {
+      "SKU": "A",
+      "Price": 50
+    },
+    {
+      "SKU": "B",
+      "Price": 30
+    },
+    {
+      "SKU": "C",
+      "Price": 20
+    },
+    {
+      "SKU": "D",
+      "Price": 15
+    }
+  ]
+}
